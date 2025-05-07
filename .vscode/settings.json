@@ -1,0 +1,11 @@
+{
+"workbench.editor.empty.hint": "hidden",
+"python.defaultInterpreterPath": "python",
+"security.workspace.trust.untrustedFiles": "Command Prompt",
+"terminal.integrated.env.windows": {
+    "PATH":"${workspaceFolder}\\.venv\\Scripts;{env:PATH}"
+}
+
+
+
+}
