@@ -1,0 +1,27 @@
+<!-- @dsCard group="Data" height=256 subtitle="levels · status in the header" -->
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>LogConsole — preview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+</head>
+<body>
+<div id="root" class="ep-stack" style="max-width: 720px;"></div>
+<script>
+  var E = window.Epoch, root = document.getElementById('root');
+  root.appendChild(E.LogConsole({
+    title: 'train.py', status: 'running', height: 180,
+    lines: [
+      { t: '12:04:02', level: 'INFO', msg: 'TensorFlow 버전: 2.16.1' },
+      { t: '12:04:02', level: 'WARN', msg: 'GPU 사용가능 여부: []' },
+      { t: '12:04:02', level: 'WARN', msg: 'CUDA를 사용할 수 없습니다. CPU로 계속합니다.' },
+      { t: '12:04:03', level: 'DEBUG', msg: 'batch_size=32 epochs=5 validation_split=0.1' },
+      { t: '12:04:31', level: 'INFO', msg: 'epoch 1/5  loss=0.2731  accuracy=0.9201  val_loss=0.1420' },
+      { t: '12:04:58', level: 'INFO', msg: 'epoch 2/5  loss=0.1689  accuracy=0.9488  val_loss=0.1105' },
+      { t: '12:05:26', level: 'INFO', msg: 'epoch 3/5  loss=0.1120  accuracy=0.9663  val_loss=0.0982' },
+      { t: '12:05:27', level: 'ERROR', msg: 'RuntimeError: CUDA out of memory. Tried to allocate 512.00 MiB' },
+      { t: '12:05:27', level: 'INFO', msg: '모델이 model.pkl로 저장되었습니다.' }
+    ]
+  }));
+</script>
+</body>
+</html>

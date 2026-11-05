@@ -1,0 +1,19 @@
+<!-- @dsCard group="Data" height=192 subtitle="loss · accuracy · lr · resource" -->
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>MetricTile — preview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+</head>
+<body>
+<div id="root" class="ep-grid" style="grid-template-columns: repeat(4, minmax(160px, 1fr)); max-width: 880px;"></div>
+<script>
+  var E = window.Epoch, root = document.getElementById('root');
+  [
+    E.MetricTile({ label: '학습 손실', value: '0.0821', delta: '-0.0124', deltaTone: 'good', series: [0.4312, 0.2731, 0.1689, 0.1120, 0.0945, 0.0821], note: 'epoch 5 / 5' }),
+    E.MetricTile({ label: '검증 정확도', value: '0.9667', delta: '+0.0333', deltaTone: 'good', series: [0.8667, 0.9000, 0.9333, 0.9333, 0.9667, 0.9667], note: '검증 세트 30개' }),
+    E.MetricTile({ label: '학습률', value: '1e-4', note: 'cosine, warmup 100 steps' }),
+    E.MetricTile({ label: 'GPU 메모리', value: '11.2', unit: 'GB', delta: '/ 24 GB', note: 'cuda:0' })
+  ].forEach(function (n) { root.appendChild(n); });
+</script>
+</body>
+</html>

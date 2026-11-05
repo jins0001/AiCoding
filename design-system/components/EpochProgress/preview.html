@@ -1,0 +1,18 @@
+<!-- @dsCard group="Feedback" height=352 subtitle="running · succeeded · failed" -->
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>EpochProgress — preview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+</head>
+<body>
+<div id="root" class="ep-stack" style="max-width: 560px;"></div>
+<script>
+  var E = window.Epoch, root = document.getElementById('root');
+  [
+    E.EpochProgress({ epoch: 3, epochs: 5, step: 1240, steps: 1875, status: 'running', loss: '0.0821', acc: '0.9667', lr: '1e-3', eta: '00:04:12' }),
+    E.EpochProgress({ epoch: 5, epochs: 5, step: 1875, steps: 1875, status: 'succeeded', loss: '0.0613', acc: '0.9733' }),
+    E.EpochProgress({ title: 'LoRA r=8 · Epoch 2 / 3', epoch: 2, epochs: 3, step: 410, steps: 1200, status: 'failed', loss: 'nan', lr: '2e-4' })
+  ].forEach(function (n) { root.appendChild(n); });
+</script>
+</body>
+</html>
