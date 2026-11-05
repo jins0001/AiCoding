@@ -1,0 +1,66 @@
+# Epoch light theme for matplotlib. Generated from tokens.json by epoch_theme.py:
+# edit tokens.json and rerun the script instead of editing this file.
+
+figure.facecolor: f6f6f4  # surface-000
+figure.edgecolor: f6f6f4
+figure.dpi: 100  # px to pt mapping assumes 100 dpi
+figure.figsize: 6.4, 4.0
+figure.titlesize: 13.0  # heading
+figure.titleweight: 600
+savefig.facecolor: auto
+savefig.dpi: 200
+savefig.bbox: tight
+
+axes.facecolor: ffffff  # surface-100
+axes.edgecolor: c6c7c1  # line-200
+axes.linewidth: 1.0
+axes.spines.top: False
+axes.spines.right: False
+axes.grid: True
+axes.axisbelow: True
+axes.titlesize: 13.0  # heading
+axes.titleweight: 600
+axes.titlelocation: left
+axes.titlepad: 12
+axes.titlecolor: 1c1d21  # ink-900
+axes.labelsize: 8.5  # label
+axes.labelcolor: 45484f  # ink-700
+axes.labelpad: 6
+axes.prop_cycle: cycler('color', ['4c72b0', 'dd8452', '55a868', 'c44e52', '8172b3', '937860'])  # series-1..6
+axes.unicode_minus: False  # Korean fonts often lack U+2212
+
+grid.color: e3e3df  # line-100
+grid.linewidth: 1.0
+grid.alpha: 1.0
+
+text.color: 1c1d21  # ink-900
+xtick.color: 62656f  # ink-500
+ytick.color: 62656f
+xtick.labelsize: 8.5
+ytick.labelsize: 8.5
+xtick.major.size: 0
+ytick.major.size: 0
+xtick.minor.size: 0
+ytick.minor.size: 0
+xtick.major.pad: 6
+ytick.major.pad: 6
+
+legend.frameon: False
+legend.fontsize: 8.5
+legend.title_fontsize: 8.5
+legend.labelcolor: 45484f  # ink-700
+
+lines.linewidth: 2.0
+lines.markersize: 5
+lines.solid_capstyle: round
+lines.dash_capstyle: round
+patch.linewidth: 0
+patch.facecolor: 4c72b0
+scatter.edgecolors: face
+image.cmap: Blues
+
+font.family: sans-serif
+font.sans-serif: IBM Plex Sans KR, Apple SD Gothic Neo, Malgun Gothic, AppleGothic, NanumGothic, Noto Sans CJK KR, DejaVu Sans
+font.monospace: IBM Plex Mono, D2Coding, SFMono-Regular, Menlo, DejaVu Sans Mono
+font.size: 10.0  # body
+mathtext.fontset: dejavusans

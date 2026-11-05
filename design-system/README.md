@@ -73,10 +73,11 @@ Epoch는 AI 모델 개발 도구를 위한 디자인 시스템입니다. 파인�
 
 ## 데이터 시각화
 
-- 계열 순서는 `series-1`부터. 관례: 정확도·학습 지표는 `series-1`, 손실·검증 지표는 `series-2`. 학습 곡선은 실선, 검증 곡선은 점선으로 같은 계열색을 씁니다.
+- 계열 순서는 `series-1`부터. 지표 하나에 계열 하나: 정확도는 `series-1`, 손실은 `series-2`. 같은 지표의 학습 곡선은 실선, 검증 곡선은 점선으로 같은 계열색을 씁니다.
 - 축 라벨과 눈금은 `caption`에 `ink-500`, 격자선은 `line-100`. 차트 바탕은 `surface-100`.
 - 값 레이블은 mono. 손실 축은 0부터 시작하지 않아도 되지만 정확도 축은 0~1로 고정합니다.
 - 스파크라인은 MetricTile의 `series`로 그리며 축 없이 추세만 보여 줍니다.
+- 노트북의 matplotlib와 seaborn 차트는 `python/epoch_theme.py`로 같은 값을 씁니다. 첫 셀에서 `epoch_theme.use()`를 부르면 바탕, 격자, 글꼴, 계열 색, 색상표가 이 시스템을 따릅니다. 자세한 규칙은 노트북 차트 섹션에 있습니다.
 
 ## 컴포넌트
 
@@ -91,5 +92,19 @@ Epoch는 AI 모델 개발 도구를 위한 디자인 시스템입니다. 파인�
 - **CodeCell.** 노트북 셀. `kind: 'prompt'`면 템플릿의 `{변수}`를 강조합니다.
 - **ParamField.** 하이퍼파라미터 입력. 한국어 라벨과 코드 이름을 같이 보여 줍니다.
 - **DataTable.** 분류 보고서처럼 숫자 열이 많은 표.
+
+React 앱에서는 컴포넌트를 ref에 붙이는 얇은 래퍼 하나로 씁니다. 페이지에는 `tokens.css`, `components/bundle.css`, `components/bundle.js`를 먼저 넣습니다.
+
+```jsx
+function EpochMount({ name, ...props }) {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    ref.current.replaceChildren(window.Epoch[name](props));
+  });
+  return <div ref={ref} />;
+}
+
+<EpochMount name="MetricTile" label="검증 정확도" value="0.9667" delta="+0.0333" deltaTone="good" />
+```
 
 이 저장소에는 UI 코드가 없으므로 아홉 컴포넌트는 모두 의도적으로 새로 정의한 것입니다. 노트북이 출력하는 것(정확도, 분류 보고서, 학습 루프의 epoch/loss, 모델 저장 메시지, GPU 확인 로그)을 화면에 올리는 데 필요한 최소한으로 골랐습니다.
