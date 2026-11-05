@@ -1,0 +1,26 @@
+<!-- @dsCard group="Editors" height=560 subtitle="python cell with output · prompt template · running" -->
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>CodeCell — preview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+</head>
+<body>
+<div id="root" class="ep-stack" style="max-width: 760px;"></div>
+<script>
+  var E = window.Epoch, root = document.getElementById('root');
+  root.appendChild(E.CodeCell({
+    title: '2. 모델 학습과 평가', lang: 'python', index: 7, status: 'done',
+    code: "from sklearn.ensemble import RandomForestClassifier\nfrom sklearn.metrics import accuracy_score\n\n# 모델 학습\nmodel = RandomForestClassifier(random_state=42)\nmodel.fit(X_train, y_train)\ny_pred = model.predict(X_test)\nprint(\"정확도:\", accuracy_score(y_test, y_pred))",
+    output: "정확도: 0.9667"
+  }));
+  root.appendChild(E.CodeCell({
+    kind: 'prompt', title: 'rag_prompt', lang: 'jinja2',
+    code: "다음 문서를 참고하여 질문에 답하세요. 문서에 없는 내용은 모른다고 답합니다.\n\n문서:\n{context}\n\n질문: {question}\n답변:"
+  }));
+  root.appendChild(E.CodeCell({
+    index: 8, status: 'running',
+    code: "model.fit(X_train, y_train, epochs=5, batch_size=32, validation_split=0.1)"
+  }));
+</script>
+</body>
+</html>

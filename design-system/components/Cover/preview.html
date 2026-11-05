@@ -1,0 +1,108 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Epoch</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--surface-000); color: var(--ink-900); font-family: var(--font-sans); overflow: hidden; }
+  .cover { position: relative; width: 960px; height: 288px; overflow: hidden; }
+  /* the composition: a 480-wide box on the right half of the 960 layout, clear of the name */
+  .art { position: absolute; top: 0; left: 480px; width: 480px; height: 288px; overflow: hidden; }
+  .art svg { display: block; width: 640px; height: 288px; }
+  .brand { fill: var(--primary); }
+  .tint { fill: var(--primary-soft); }
+  .deep { fill: var(--ink-900); }
+  .loss { fill: var(--series-2); }
+  .ok { fill: var(--success); }
+  .slab { rx: var(--radius-lg); }
+  .blk { rx: var(--radius-md); }
+  .plus { fill: none; stroke: var(--primary); stroke-width: 2; stroke-linecap: square; }
+  /* name and tagline, bottom-left on the ground */
+  .words { position: absolute; left: var(--space-6); bottom: var(--space-6); max-width: 440px; }
+  .name { margin: 0; font-size: 120px; line-height: .9; font-weight: 600; letter-spacing: -.03em; color: var(--ink-900); }
+  .tag { margin: var(--space-2) 0 0 var(--space-1); font-size: 14px; line-height: 20px; color: var(--ink-500); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 640 288" width="640" height="288">
+<!--
+  blocks      primary 160×256 bled off the top (the one hue the system is known by) · primary-soft 192×176 (the tint, relief) · ink-900 224×256 bleeding off the right edge (the deep slab; in dark it is the pale one) · series-2 96×48 (loss orange, the chart's second voice) · success 64×24 once (it only ever means "완료") — about half of 960×288
+  arrangement one tall primary slab, a tint block and a deep slab to its right, the two small signals stacked above the tint; bottoms on one line space-4 above the edge, space-4 gutters
+  pattern     a plus grid, from "precise, technical, mono, a 4px grid": the README's first principle is that numbers are the subject and everything sits on a 4px grid, so the marks are crosshairs at one spacing step, inside the tint block only, in primary
+  scales      sides in space-4 multiples (160 = 10×16, 192 = 12×16, 176 = 11×16, 96, 48, 64, 24); gutters space-4; pitch space-5 (24px), arms space-2 (8px); slab corners radius-lg, small blocks radius-md
+-->
+<rect class="brand slab" x="0" y="-16" width="160" height="256" rx="10"/>
+<rect class="loss blk" x="176" y="32" width="96" height="48" rx="6"/>
+<rect class="ok blk" x="288" y="56" width="64" height="24" rx="6"/>
+<rect class="tint blk" x="176" y="96" width="192" height="176" rx="6"/>
+<rect class="deep slab" x="384" y="16" width="256" height="256" rx="10"/>
+<path class="plus" d="M184 108H192M188 104V112"/>
+<path class="plus" d="M208 108H216M212 104V112"/>
+<path class="plus" d="M232 108H240M236 104V112"/>
+<path class="plus" d="M256 108H264M260 104V112"/>
+<path class="plus" d="M280 108H288M284 104V112"/>
+<path class="plus" d="M304 108H312M308 104V112"/>
+<path class="plus" d="M328 108H336M332 104V112"/>
+<path class="plus" d="M352 108H360M356 104V112"/>
+<path class="plus" d="M184 132H192M188 128V136"/>
+<path class="plus" d="M208 132H216M212 128V136"/>
+<path class="plus" d="M232 132H240M236 128V136"/>
+<path class="plus" d="M256 132H264M260 128V136"/>
+<path class="plus" d="M280 132H288M284 128V136"/>
+<path class="plus" d="M304 132H312M308 128V136"/>
+<path class="plus" d="M328 132H336M332 128V136"/>
+<path class="plus" d="M352 132H360M356 128V136"/>
+<path class="plus" d="M184 156H192M188 152V160"/>
+<path class="plus" d="M208 156H216M212 152V160"/>
+<path class="plus" d="M232 156H240M236 152V160"/>
+<path class="plus" d="M256 156H264M260 152V160"/>
+<path class="plus" d="M280 156H288M284 152V160"/>
+<path class="plus" d="M304 156H312M308 152V160"/>
+<path class="plus" d="M328 156H336M332 152V160"/>
+<path class="plus" d="M352 156H360M356 152V160"/>
+<path class="plus" d="M184 180H192M188 176V184"/>
+<path class="plus" d="M208 180H216M212 176V184"/>
+<path class="plus" d="M232 180H240M236 176V184"/>
+<path class="plus" d="M256 180H264M260 176V184"/>
+<path class="plus" d="M280 180H288M284 176V184"/>
+<path class="plus" d="M304 180H312M308 176V184"/>
+<path class="plus" d="M328 180H336M332 176V184"/>
+<path class="plus" d="M352 180H360M356 176V184"/>
+<path class="plus" d="M184 204H192M188 200V208"/>
+<path class="plus" d="M208 204H216M212 200V208"/>
+<path class="plus" d="M232 204H240M236 200V208"/>
+<path class="plus" d="M256 204H264M260 200V208"/>
+<path class="plus" d="M280 204H288M284 200V208"/>
+<path class="plus" d="M304 204H312M308 200V208"/>
+<path class="plus" d="M328 204H336M332 200V208"/>
+<path class="plus" d="M352 204H360M356 200V208"/>
+<path class="plus" d="M184 228H192M188 224V232"/>
+<path class="plus" d="M208 228H216M212 224V232"/>
+<path class="plus" d="M232 228H240M236 224V232"/>
+<path class="plus" d="M256 228H264M260 224V232"/>
+<path class="plus" d="M280 228H288M284 224V232"/>
+<path class="plus" d="M304 228H312M308 224V232"/>
+<path class="plus" d="M328 228H336M332 224V232"/>
+<path class="plus" d="M352 228H360M356 224V232"/>
+<path class="plus" d="M184 252H192M188 248V256"/>
+<path class="plus" d="M208 252H216M212 248V256"/>
+<path class="plus" d="M232 252H240M236 248V256"/>
+<path class="plus" d="M256 252H264M260 248V256"/>
+<path class="plus" d="M280 252H288M284 248V256"/>
+<path class="plus" d="M304 252H312M308 248V256"/>
+<path class="plus" d="M328 252H336M332 248V256"/>
+<path class="plus" d="M352 252H360M356 248V256"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Epoch</h1>
+<p class="tag">학습, 평가, 체인 구성을 위한 UI 언어.</p>
+</div>
+</div>
+</body>
+</html>

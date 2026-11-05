@@ -1,0 +1,24 @@
+<!-- @dsCard group="Chains" height=296 subtitle="a RAG chain · selected · statuses" -->
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>ChainNode — preview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>.ep-stack{gap:var(--space-5)}</style>
+</head>
+<body>
+<div id="root" class="ep-stack"></div>
+<script>
+  var E = window.Epoch, root = document.getElementById('root');
+  root.appendChild(E.chain([
+    { kind: 'prompt', name: 'rag_prompt', meta: '{context} {question}', status: 'succeeded', input: false },
+    { kind: 'retriever', name: 'FAISS 리트리버', meta: 'k=4 · bge-m3', status: 'succeeded' },
+    { kind: 'llm', name: 'ChatOpenAI', meta: 'gpt-4o-mini · temperature=0.2', status: 'running', selected: true }
+  ]));
+  root.appendChild(E.chain([
+    { kind: 'tool', name: 'python_repl', meta: 'timeout=30s', status: 'failed', input: false },
+    { kind: 'parser', name: 'StrOutputParser', status: 'queued' },
+    { kind: 'memory', name: 'ConversationBuffer', meta: 'k=6 turns', output: false }
+  ]));
+</script>
+</body>
+</html>

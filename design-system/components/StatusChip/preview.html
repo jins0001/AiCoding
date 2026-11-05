@@ -1,0 +1,16 @@
+<!-- @dsCard group="Feedback" height=72 subtitle="six run states · ko and en" -->
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>StatusChip — preview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+</head>
+<body>
+<div id="root" class="ep-row"></div>
+<script>
+  var E = window.Epoch, root = document.getElementById('root');
+  ['queued', 'running', 'succeeded', 'failed', 'stopped', 'draft'].forEach(function (s) { root.appendChild(E.StatusChip({ status: s })); });
+  root.appendChild(E.StatusChip({ status: 'running', lang: 'en' }));
+  root.appendChild(E.StatusChip({ status: 'running', label: '검증 중' }));
+</script>
+</body>
+</html>

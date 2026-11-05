@@ -1,0 +1,23 @@
+<!-- @dsCard group="Actions" height=104 subtitle="variants · sizes · loading · disabled" -->
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>Button — preview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+</head>
+<body>
+<div id="root" class="ep-row"></div>
+<script>
+  var E = window.Epoch, root = document.getElementById('root');
+  [
+    E.Button({ variant: 'primary', label: '학습 시작', glyph: '▶' }),
+    E.Button({ variant: 'secondary', label: '체크포인트 저장' }),
+    E.Button({ variant: 'ghost', label: '로그 보기' }),
+    E.Button({ variant: 'danger', label: '실행 중지', glyph: '■' }),
+    E.Button({ variant: 'primary', size: 'sm', label: '평가' }),
+    E.Button({ variant: 'primary', size: 'lg', label: '체인 실행' }),
+    E.Button({ variant: 'secondary', label: '평가 중', loading: true }),
+    E.Button({ variant: 'secondary', label: '배포', disabled: true })
+  ].forEach(function (n) { root.appendChild(n); });
+</script>
+</body>
+</html>

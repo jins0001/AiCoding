@@ -1,0 +1,21 @@
+<!-- @dsCard group="Forms" height=228 subtitle="number · select · unit · error · disabled" -->
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>ParamField — preview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+</head>
+<body>
+<div id="root" class="ep-grid" style="grid-template-columns: repeat(3, minmax(200px, 1fr)); max-width: 760px; gap: var(--space-4);"></div>
+<script>
+  var E = window.Epoch, root = document.getElementById('root');
+  [
+    E.ParamField({ label: '학습률', name: 'learning_rate', kind: 'number', value: '1e-4', hint: 'LoRA는 1e-4 ~ 3e-4가 보통입니다.' }),
+    E.ParamField({ label: '베이스 모델', name: 'base_model', kind: 'select', value: 'Qwen2.5-7B-Instruct', options: ['Llama-3.1-8B-Instruct', 'Qwen2.5-7B-Instruct', 'gemma-2-9b-it'] }),
+    E.ParamField({ label: 'LoRA rank', name: 'lora_r', kind: 'number', value: 8, hint: 'alpha는 rank의 2배로 맞춥니다.' }),
+    E.ParamField({ label: '배치 크기', name: 'batch_size', kind: 'number', value: 48, error: '2의 거듭제곱이어야 합니다.' }),
+    E.ParamField({ label: '워밍업', name: 'warmup_steps', kind: 'number', value: 100, unit: 'steps' }),
+    E.ParamField({ label: '시드', name: 'random_state', kind: 'number', value: 42, disabled: true, hint: '실행 후에는 바꿀 수 없습니다.' })
+  ].forEach(function (n) { root.appendChild(n); });
+</script>
+</body>
+</html>

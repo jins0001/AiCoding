@@ -1,0 +1,44 @@
+<!-- @dsCard group="Data" height=336 subtitle="classification report · model comparison with status" -->
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>DataTable — preview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+</head>
+<body>
+<div id="root" class="ep-grid" style="grid-template-columns: 1fr 1fr; max-width: 880px; gap: var(--space-4);"></div>
+<script>
+  var E = window.Epoch, root = document.getElementById('root');
+  root.appendChild(E.DataTable({
+    caption: '분류 보고서',
+    columns: [
+      { key: 'cls', label: 'class', rowHeader: true },
+      { key: 'precision', label: 'precision', align: 'num', digits: 2 },
+      { key: 'recall', label: 'recall', align: 'num', digits: 2 },
+      { key: 'f1', label: 'f1-score', align: 'num', digits: 2 },
+      { key: 'support', label: 'support', align: 'num' }
+    ],
+    rows: [
+      { cls: 'setosa', precision: 1.0, recall: 1.0, f1: 1.0, support: 10 },
+      { cls: 'versicolor', precision: 1.0, recall: 0.89, f1: 0.94, support: 9 },
+      { cls: 'virginica', precision: 0.92, recall: 1.0, f1: 0.96, support: 11 }
+    ],
+    footer: { cls: 'macro avg', precision: 0.97, recall: 0.96, f1: 0.97, support: 30 }
+  }));
+  root.appendChild(E.DataTable({
+    caption: '모델 비교 · test_size=0.2, random_state=42',
+    columns: [
+      { key: 'model', label: '모델', rowHeader: true },
+      { key: 'acc', label: '정확도', align: 'num', digits: 4, highlightMax: true },
+      { key: 'cv', label: 'cv=5 평균', align: 'num', digits: 4, highlightMax: true },
+      { key: 'status', label: '상태' }
+    ],
+    rows: [
+      { model: 'LogisticRegression', acc: 0.9667, cv: 0.9733, status: E.StatusChip({ status: 'succeeded' }) },
+      { model: 'DecisionTreeClassifier', acc: 0.9333, cv: 0.9533, status: E.StatusChip({ status: 'succeeded' }) },
+      { model: 'RandomForestClassifier', acc: 1.0, cv: 0.9667, status: E.StatusChip({ status: 'running' }) },
+      { model: 'SVC (StandardScaler)', acc: 0.9667, cv: 0.9667, status: E.StatusChip({ status: 'queued' }) }
+    ]
+  }));
+</script>
+</body>
+</html>
